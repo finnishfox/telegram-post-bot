@@ -1,6 +1,6 @@
 {
   "name": "telegram-post-bot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Telegram bot to post messages to channel",
   "main": "./lib/index.js",
   "author": "finnishfox",
