@@ -1,0 +1,26 @@
+{
+  "name": "telegram-post-bot",
+  "version": "1.0.1",
+  "description": "Telegram bot to post messages to channel",
+  "main": "./lib/index.js",
+  "author": "finnishfox",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest",
+    "readme":"documentation readme src/index.js -s 'Documentation'",
+    "build":"npx babel src -d lib --minified --ignore tests/",
+    "npm:update":"npm version patch & npm publish"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.1.4"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "nock": "^9.1.6"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
