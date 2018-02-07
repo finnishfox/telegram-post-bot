@@ -17,6 +17,7 @@ bot.sendMessage('@channelusername', '<b>message<b> <a href="http://www.example.c
 
 -   [TelegramPostBot](#telegrampostbot)
     -   [sendMessage](#sendmessage)
+-   [ErrorBadRequest](#errorbadrequest)
 
 ## TelegramPostBot
 
@@ -24,7 +25,7 @@ Class represents telegram bot
 
 **Parameters**
 
--   `token`  
+-   `token` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** telegram bot's authentication token
 
 ### sendMessage
 
@@ -36,3 +37,13 @@ Send message to telegram channel
 -   `text`  {string} - text of message
 -   `parseMode`  {string} - mode: Markdown or HTML to show bold/italic text and inline URLS in message
 -   `webpagePreviewOff`  {boolean} - true to disable link previews
+
+## ErrorBadRequest
+
+**Extends Error**
+
+Class represents custom error for Bad Request response
+
+**Parameters**
+
+-   `message` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | null)** error message (optional, default `null`)

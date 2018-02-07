@@ -1,5 +1,8 @@
+import ErrorBadRequest from './ErrorBadRequest';
+
 /**
  * Class represents telegram bot
+ * @param {string} token - telegram bot's authentication token
  */
 export default class TelegramPostBot {
   /**
@@ -18,13 +21,14 @@ export default class TelegramPostBot {
    * @param webpagePreviewOff {boolean} - true to disable link previews
    */
   async sendMessage(chatId, text, parseMode = 'HTML', webpagePreviewOff = 'false') {
-    const result = await fetch(`https://api.telegram.org/bot${this.token}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=${parseMode}&disable_web_page_preview=${webpagePreviewOff}`);
-    if (result.ok) {
+    let result;
+    try {
+      result = await fetch(`https://api.telegram.org/bot${this.token}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=${parseMode}&disable_web_page_preview=${webpagePreviewOff}`);
       const json = await result.json();
-      return json.result;
-    } else {
-      const json = await result.json();
-      throw new Error(json.description);
+      if (result.ok) return json.result;
+      throw new ErrorBadRequest(json.description);
+    } catch (error) {
+      throw new ErrorBadRequest(`${error.message}`);
     }
   }
 }
