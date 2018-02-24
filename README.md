@@ -6,7 +6,7 @@ Bot that posts messages to telegram channel
 
 ```javascript
 const bot = new TelegramPostBot('<token>');
-bot.sendMessage('@channelusername', '<b>message<b> <a href="http://www.example.com/">inline URL</a>', 'HTML', false);
+bot.sendMessage('@channelusername', '<b>message</b> <a href="http://www.example.com/">inline URL</a>', 'HTML', false);
 ```
 
 # Documentation

@@ -1,5 +1,5 @@
 .idea
 src
 node_modules
-config.env.json
+.env.json
 .DS_Store

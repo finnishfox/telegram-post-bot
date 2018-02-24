@@ -20,15 +20,11 @@ export default class TelegramPostBot {
    * @param parseMode {string} - mode: Markdown or HTML to show bold/italic text and inline URLS in message
    * @param webpagePreviewOff {boolean} - true to disable link previews
    */
-  async sendMessage(chatId, text, parseMode = 'HTML', webpagePreviewOff = 'false') {
+  async sendMessage(chatId, text, parseMode, webpagePreviewOff) {
     let result;
-    try {
       result = await fetch(`https://api.telegram.org/bot${this.token}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=${parseMode}&disable_web_page_preview=${webpagePreviewOff}`);
       const json = await result.json();
       if (result.ok) return json.result;
       throw new ErrorBadRequest(json.description);
-    } catch (error) {
-      throw new ErrorBadRequest(`${error.message}`);
-    }
   }
 }
